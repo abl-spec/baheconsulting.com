@@ -10,110 +10,112 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg: #0d0d0d; --bg2: #141414; --bg3: #1a1a1a;
-    --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.18);
-    --text: #f0ede8; --text-muted: #888580;
+    --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.22);
+    --text: #f0ede8; --text-muted: #b0aca6;
     --accent: #c9a96e; --accent-soft: rgba(201,169,110,0.12);
   }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-
-  .lang-switcher { display: flex; align-items: center; gap: 0; border: 1px solid var(--border); overflow: hidden; }
-  .lang-btn { padding: 0.35rem 0.75rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; background: transparent; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .lang-switcher { display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.2); overflow: hidden; }
+  .lang-btn { padding: 0.4rem 0.85rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #ccc; cursor: pointer; background: transparent; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
   .lang-btn.active { background: var(--accent); color: var(--bg); font-weight: 500; }
   .lang-btn:not(.active):hover { color: var(--accent); }
-
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; background: rgba(13,13,13,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(13,13,13,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #f0ede8; }
   .nav-right { display: flex; align-items: center; gap: 2rem; }
   .nav-links { display: flex; gap: 2.5rem; }
-  .nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); transition: color 0.2s; }
+  .nav-links a { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: #d0ccc6; font-weight: 400; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
-  .nav-cta { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.4rem; border: 1px solid var(--accent); color: var(--accent); transition: all 0.2s; cursor: pointer; white-space: nowrap; }
+  .nav-cta { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.6rem 1.5rem; border: 1px solid var(--accent); color: var(--accent); transition: all 0.2s; cursor: pointer; white-space: nowrap; font-weight: 400; }
   .nav-cta:hover { background: var(--accent); color: var(--bg); }
-
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 10rem 3rem 6rem; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: radial-gradient(ellipse at 70% 40%, rgba(201,169,110,0.06) 0%, transparent 65%); pointer-events: none; }
-  .hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(13,13,13,0.82) 0%, rgba(13,13,13,0.75) 50%, rgba(13,13,13,0.92) 100%), repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px); pointer-events: none; }
+  .hero-glow { position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: radial-gradient(ellipse at 70% 40%, rgba(201,169,110,0.08) 0%, transparent 65%); pointer-events: none; }
+  .hero-tag { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; position: relative; }
   .hero-tag::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
-  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; max-width: 820px; margin-bottom: 2.5rem; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; max-width: 820px; margin-bottom: 2.5rem; position: relative; }
   .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 520px; line-height: 1.8; margin-bottom: 3.5rem; }
-  .hero-actions { display: flex; align-items: center; gap: 2rem; }
-  .btn-primary { display: inline-block; padding: 0.85rem 2.2rem; background: var(--accent); color: var(--bg); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: opacity 0.2s; cursor: pointer; }
+  .hero-sub { font-size: 1.05rem; color: #ccc8c2; max-width: 540px; line-height: 1.85; margin-bottom: 3.5rem; position: relative; font-weight: 400; }
+  .hero-actions { display: flex; align-items: center; gap: 2rem; position: relative; }
+  .btn-primary { display: inline-block; padding: 0.9rem 2.4rem; background: var(--accent); color: var(--bg); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: opacity 0.2s; cursor: pointer; }
   .btn-primary:hover { opacity: 0.85; }
-  .btn-ghost { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .btn-ghost { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ccc8c2; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; font-weight: 400; }
   .btn-ghost:hover { color: var(--text); }
   .btn-ghost::after { content: '→'; }
-  .hero-stats { display: flex; gap: 3.5rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
-  .stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
-
+  .hero-stats { display: flex; gap: 0; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); position: relative; }
+  .stat-item { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; padding-right: 2.5rem; border-right: 1px solid var(--border); margin-right: 2.5rem; }
+  .stat-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+  .stat-top { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; color: var(--accent); line-height: 1; letter-spacing: 0.05em; }
+  .stat-bottom { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: #ccc8c2; font-weight: 400; }
   section { padding: 7rem 3rem; }
   .section-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-tag::before { content: ''; display: inline-block; width: 1.5rem; height: 1px; background: var(--accent); }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.2rem; }
   .section-lead { font-size: 0.95rem; color: var(--text-muted); max-width: 560px; line-height: 1.8; margin-bottom: 4rem; }
-
-  .about { background: var(--bg2); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; }
-  .about-text p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1.2rem; }
-  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about { background: var(--bg2); position: relative; overflow: hidden; }
+  .about::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px); pointer-events: none; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; position: relative; }
+  .about-text p { color: var(--text-muted); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1.2rem; }
+  .about-text p strong { color: #f0ede8; font-weight: 500; }
   .about-pillars { display: flex; flex-direction: column; gap: 1.2rem; }
   .pillar { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.4rem; border: 1px solid var(--border); background: var(--bg3); transition: border-color 0.2s; }
   .pillar:hover { border-color: var(--border-hover); }
   .pillar-icon { width: 36px; height: 36px; flex-shrink: 0; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent); font-weight: 500; }
-  .pillar-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .pillar-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem; color: #f0ede8; }
   .pillar-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
-
-  .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+  .expertise { position: relative; overflow: hidden; }
+  .expertise::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px); pointer-events: none; }
+  .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; position: relative; }
   .expertise-card { background: var(--bg); padding: 2.5rem 2rem; transition: background 0.2s; position: relative; overflow: hidden; }
   .expertise-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(--accent); transition: height 0.3s ease; }
   .expertise-card:hover::before { height: 100%; }
   .expertise-card:hover { background: var(--bg2); }
   .card-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(201,169,110,0.15); line-height: 1; margin-bottom: 1.2rem; }
-  .card-title { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.9rem; }
+  .card-title { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.9rem; color: #f0ede8; }
   .card-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.75; }
-
-  .geo { background: var(--bg2); }
-  .geo-content { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; max-width: 1000px; }
+  .geo { background: var(--bg2); position: relative; overflow: hidden; }
+  .geo::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px); pointer-events: none; }
+  .geo-content { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; max-width: 1000px; position: relative; }
   .geo-regions { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
   .geo-region { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border: 1px solid var(--border); background: var(--bg3); }
-  .region-name { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .region-name { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #f0ede8; }
   .region-detail { font-size: 0.78rem; color: var(--text-muted); }
   .geo-clients { margin-top: 2rem; }
   .geo-clients-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.2rem; }
   .clients-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
   .client-tag { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.9rem; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s; }
   .client-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-  .contact { background: var(--bg); }
-  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; max-width: 1000px; align-items: start; }
-  .contact-info p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; }
-  .contact-item { display: flex; align-items: center; gap: 1rem; }
-  .contact-item-icon { width: 32px; height: 32px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent); }
-  .contact-item-text { font-size: 0.85rem; color: var(--text-muted); }
+  .contact { background: var(--bg); position: relative; overflow: hidden; }
+  .contact::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent, transparent 50px, rgba(255,255,255,0.01) 50px, rgba(255,255,255,0.01) 51px); pointer-events: none; }
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; max-width: 1000px; align-items: start; position: relative; }
+  .contact-info p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2.5rem; }
+  .contact-email-block { margin-top: 1rem; }
+  .contact-email-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+  .contact-email-addr { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--accent); letter-spacing: 0.03em; display: block; transition: opacity 0.2s; }
+  .contact-email-addr:hover { opacity: 0.75; }
   .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .field { display: flex; flex-direction: column; gap: 0.5rem; }
   .field label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-  .field input, .field select, .field textarea { background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 300; padding: 0.75rem 1rem; transition: border-color 0.2s; outline: none; width: 100%; }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
-  .field select { appearance: none; cursor: pointer; }
+  .field input, .field textarea { background: var(--bg2); border: 1px solid var(--border); color: #f0ede8; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 300; padding: 0.75rem 1rem; transition: border-color 0.2s; outline: none; width: 100%; }
+  .field input:focus, .field textarea:focus { border-color: var(--accent); }
   .field textarea { resize: vertical; min-height: 110px; }
   .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); opacity: 0.5; }
   .form-submit { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2.5rem; background: var(--accent); color: var(--bg); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; border: none; cursor: pointer; transition: opacity 0.2s; align-self: flex-start; }
   .form-submit:hover { opacity: 0.85; }
-
   footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
   .footer-copy { font-size: 0.75rem; color: var(--text-muted); }
-
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; } .nav-links { display: none; }
     .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
     .about-grid, .geo-content, .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
-    .form-row { grid-template-columns: 1fr; } .hero-stats { gap: 2rem; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 1.5rem; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 0; padding-right: 0; margin-right: 0; }
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
 </style>
@@ -138,6 +140,8 @@
 </nav>
 
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
   <div class="hero-tag" data-fr="Cabinet de conseil indépendant" data-en="Independent consulting firm">Cabinet de conseil indépendant</div>
   <h1 data-fr="Une expertise <em>terrain</em><br>au service de votre<br>croissance" data-en="<em>Field-tested</em> expertise<br>driving your<br>growth">Une expertise <em>terrain</em><br>au service de votre<br>croissance</h1>
   <p class="hero-sub" data-fr="Un pool de consultants seniors — issus des plus grandes structures mondiales — mobilisables en mode projet, fractional ou intérim C-level." data-en="A pool of senior consultants — drawn from the world's leading organisations — available for project-based, fractional or interim C-level engagements.">Un pool de consultants seniors — issus des plus grandes structures mondiales — mobilisables en mode projet, fractional ou intérim C-level.</p>
@@ -146,9 +150,22 @@
     <a href="#expertise" class="btn-ghost" data-fr="Nos expertises" data-en="Our expertise">Nos expertises</a>
   </div>
   <div class="hero-stats">
-    <div><div class="stat-num">APAC</div><div class="stat-label" data-fr="& EMEA" data-en="& EMEA">& EMEA</div></div>
-    <div><div class="stat-num">C-level</div><div class="stat-label" data-fr="Fractional & intérim" data-en="Fractional & interim">Fractional & intérim</div></div>
-    <div><div class="stat-num">Startup</div><div class="stat-label" data-fr="→ Grand groupe" data-en="→ Global enterprise">→ Grand groupe</div></div>
+    <div class="stat-item">
+      <div class="stat-top">APAC & EMEA</div>
+      <div class="stat-bottom" data-fr="Couverture géographique" data-en="Geographic coverage">Couverture géographique</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-top">C-level Fractional</div>
+      <div class="stat-bottom" data-fr="& Intérim exécutif" data-en="& Executive interim">& Intérim exécutif</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-top">Startup</div>
+      <div class="stat-bottom" data-fr="→ Grand groupe" data-en="→ Global enterprise">→ Grand groupe</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-top" data-fr="6 domaines" data-en="6 domains">6 domaines</div>
+      <div class="stat-bottom" data-fr="D'expertise" data-en="Of expertise">D'expertise</div>
+    </div>
   </div>
 </section>
 
@@ -157,66 +174,29 @@
     <div class="about-text">
       <div class="section-tag" data-fr="Le cabinet" data-en="The firm">Le cabinet</div>
       <h2 class="section-title" data-fr="Des profils d'exception,<br>un engagement concret" data-en="Exceptional profiles,<br>concrete commitment">Des profils d'exception,<br>un engagement concret</h2>
-      <p data-fr="BAHE Consulting rassemble un <strong>pool de consultants seniors</strong> ayant occupé des fonctions de direction dans des organisations de premier plan : Richemont, LVMH, Uber, Google, ainsi que les cabinets du Big 4." data-en="BAHE Consulting brings together a <strong>pool of senior consultants</strong> who have held leadership positions at world-class organisations: Richemont, LVMH, Uber, Google, and Big 4 firms.">BAHE Consulting rassemble un <strong>pool de consultants seniors</strong> ayant occupé des fonctions de direction dans des organisations de premier plan : Richemont, LVMH, Uber, Google, ainsi que les cabinets du Big 4.</p>
+      <p data-fr="BAHE Consulting rassemble un <strong>pool de consultants seniors</strong> ayant occupé des fonctions de direction dans des organisations de premier plan : Richemont, LVMH, Uber, Google, ainsi que les plus grands cabinets de conseil en stratégie." data-en="BAHE Consulting brings together a <strong>pool of senior consultants</strong> who have held leadership positions at world-class organisations: Richemont, LVMH, Uber, Google, and the world's leading strategy consulting firms.">BAHE Consulting rassemble un <strong>pool de consultants seniors</strong> ayant occupé des fonctions de direction dans des organisations de premier plan : Richemont, LVMH, Uber, Google, ainsi que les plus grands cabinets de conseil en stratégie.</p>
       <p data-fr="Notre modèle est simple : vous apporter <strong>une expertise rare, sans les lourdeurs d'un grand cabinet</strong>. Chaque mission est prise en charge par des consultants qui ont exercé les rôles qu'ils accompagnent — CEO, COO, CCO, VP Sales, GM régional, P&L owner." data-en="Our model is straightforward: deliver <strong>rare expertise without the overhead of a large firm</strong>. Every engagement is led by consultants who have held the very roles they advise on — CEO, COO, CCO, VP Sales, Regional GM, P&L owner.">Notre modèle est simple : vous apporter <strong>une expertise rare, sans les lourdeurs d'un grand cabinet</strong>. Chaque mission est prise en charge par des consultants qui ont exercé les rôles qu'ils accompagnent — CEO, COO, CCO, VP Sales, GM régional, P&L owner.</p>
       <p data-fr="Nous intervenons en mode projet, en <strong>fractional</strong> ou en <strong>intérim C-level</strong>, selon vos besoins et votre calendrier." data-en="We engage in project mode, as <strong>fractional executives</strong>, or as <strong>interim C-level leaders</strong> — tailored to your needs and timeline.">Nous intervenons en mode projet, en <strong>fractional</strong> ou en <strong>intérim C-level</strong>, selon vos besoins et votre calendrier.</p>
     </div>
     <div class="about-pillars">
-      <div class="pillar">
-        <div class="pillar-icon">01</div>
-        <div>
-          <div class="pillar-title" data-fr="Expertise opérationnelle" data-en="Operational expertise">Expertise opérationnelle</div>
-          <div class="pillar-desc" data-fr="Nos consultants ont exercé les fonctions qu'ils accompagnent. Pas de théorie — de l'exécution." data-en="Our consultants have held the roles they advise on. No theory — pure execution.">Nos consultants ont exercé les fonctions qu'ils accompagnent. Pas de théorie — de l'exécution.</div>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">02</div>
-        <div>
-          <div class="pillar-title" data-fr="Agilité & réactivité" data-en="Agility & responsiveness">Agilité & réactivité</div>
-          <div class="pillar-desc" data-fr="Mobilisation rapide, sans processus alourdi. Nous nous adaptons à votre rythme et à vos contraintes." data-en="Fast deployment, no heavy process. We adapt to your pace and constraints.">Mobilisation rapide, sans processus alourdi. Nous nous adaptons à votre rythme et à vos contraintes.</div>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">03</div>
-        <div>
-          <div class="pillar-title" data-fr="Couverture internationale" data-en="International reach">Couverture internationale</div>
-          <div class="pillar-desc" data-fr="Une présence et une compréhension profonde des marchés APAC et EMEA, de Paris à Singapour." data-en="Deep presence and understanding across APAC and EMEA markets, from Paris to Singapore.">Une présence et une compréhension profonde des marchés APAC et EMEA, de Paris à Singapour.</div>
-        </div>
-      </div>
+      <div class="pillar"><div class="pillar-icon">01</div><div><div class="pillar-title" data-fr="Expertise opérationnelle" data-en="Operational expertise">Expertise opérationnelle</div><div class="pillar-desc" data-fr="Nos consultants ont exercé les fonctions qu'ils accompagnent. Pas de théorie — de l'exécution." data-en="Our consultants have held the roles they advise on. No theory — pure execution.">Nos consultants ont exercé les fonctions qu'ils accompagnent. Pas de théorie — de l'exécution.</div></div></div>
+      <div class="pillar"><div class="pillar-icon">02</div><div><div class="pillar-title" data-fr="Agilité & réactivité" data-en="Agility & responsiveness">Agilité & réactivité</div><div class="pillar-desc" data-fr="Mobilisation rapide, sans processus alourdi. Nous nous adaptons à votre rythme et à vos contraintes." data-en="Fast deployment, no heavy process. We adapt to your pace and constraints.">Mobilisation rapide, sans processus alourdi. Nous nous adaptons à votre rythme et à vos contraintes.</div></div></div>
+      <div class="pillar"><div class="pillar-icon">03</div><div><div class="pillar-title" data-fr="Couverture internationale" data-en="International reach">Couverture internationale</div><div class="pillar-desc" data-fr="Une présence et une compréhension profonde des marchés APAC et EMEA, de Paris à Singapour." data-en="Deep presence and understanding across APAC and EMEA markets, from Paris to Singapore.">Une présence et une compréhension profonde des marchés APAC et EMEA, de Paris à Singapour.</div></div></div>
     </div>
   </div>
 </section>
 
-<section id="expertise">
+<section class="expertise" id="expertise">
   <div class="section-tag" data-fr="Ce que nous faisons" data-en="What we do">Ce que nous faisons</div>
   <h2 class="section-title" data-fr="Nos domaines d'expertise" data-en="Our areas of expertise">Nos domaines d'expertise</h2>
-  <p class="section-lead" data-fr="Cinq axes stratégiques couvrant l'ensemble du cycle de croissance des entreprises, de la startup aux multinationales." data-en="Five strategic pillars covering the full growth cycle, from startups to global corporations.">Cinq axes stratégiques couvrant l'ensemble du cycle de croissance des entreprises, de la startup aux multinationales.</p>
+  <p class="section-lead" data-fr="Six axes stratégiques couvrant l'ensemble du cycle de croissance des entreprises, de la startup aux multinationales." data-en="Six strategic pillars covering the full growth cycle, from startups to global corporations.">Six axes stratégiques couvrant l'ensemble du cycle de croissance des entreprises, de la startup aux multinationales.</p>
   <div class="expertise-grid">
-    <div class="expertise-card">
-      <div class="card-num">01</div>
-      <div class="card-title" data-fr="Expansion internationale & distribution" data-en="International expansion & distribution">Expansion internationale & distribution</div>
-      <div class="card-desc" data-fr="Ouverture de marchés APAC et EMEA, structuration de réseaux de distribution sélective, go-to-market dans des environnements complexes. De la stratégie à l'exécution terrain." data-en="Market entry across APAC and EMEA, selective distribution network structuring, go-to-market in complex environments. From strategy to on-the-ground execution.">Ouverture de marchés APAC et EMEA, structuration de réseaux de distribution sélective, go-to-market dans des environnements complexes. De la stratégie à l'exécution terrain.</div>
-    </div>
-    <div class="expertise-card">
-      <div class="card-num">02</div>
-      <div class="card-title" data-fr="Luxe, premium & consumer goods" data-en="Luxury, premium & consumer goods">Luxe, premium & consumer goods</div>
-      <div class="card-desc" data-fr="Expertise sectorielle profonde en horlogerie, joaillerie, mode, vin & spiritueux. Connaissance des codes du luxe, des réseaux wholesale/retail et des dynamiques de marque sur marchés matures et émergents." data-en="Deep sector expertise in watchmaking, jewellery, fashion, wine & spirits. Intimate knowledge of luxury codes, wholesale/retail networks, and brand dynamics across mature and emerging markets.">Expertise sectorielle profonde en horlogerie, joaillerie, mode, vin & spiritueux. Connaissance des codes du luxe, des réseaux wholesale/retail et des dynamiques de marque sur marchés matures et émergents.</div>
-    </div>
-    <div class="expertise-card">
-      <div class="card-num">03</div>
-      <div class="card-title" data-fr="Transformation digitale, omnicanalité & AI" data-en="Digital transformation, omnichannel & AI">Transformation digitale, omnicanalité & AI</div>
-      <div class="card-desc" data-fr="Accompagnement dans la transition DTC, e-commerce et intégration de l'IA dans les opérations et la relation client. Des profils issus de Google, Uber et des grandes scale-ups tech." data-en="Supporting DTC transitions, e-commerce growth, and AI integration into operations and customer experience. Profiles from Google, Uber and leading tech scale-ups.">Accompagnement dans la transition DTC, e-commerce et intégration de l'IA dans les opérations et la relation client. Des profils issus de Google, Uber et des grandes scale-ups tech.</div>
-    </div>
-    <div class="expertise-card">
-      <div class="card-num">04</div>
-      <div class="card-title" data-fr="Leadership opérationnel & C-level fractional" data-en="Operational leadership & fractional C-level">Leadership opérationnel & C-level fractional</div>
-      <div class="card-desc" data-fr="CEO, COO, CCO, VP Sales disponibles en mode fractional ou intérimaire. Prise en main rapide de P&L, restructuration d'équipes, pilotage de projets complexes et transverses." data-en="CEO, COO, CCO, VP Sales available in fractional or interim capacity. Rapid P&L ownership, team restructuring, and management of complex cross-functional projects.">CEO, COO, CCO, VP Sales disponibles en mode fractional ou intérimaire. Prise en main rapide de P&L, restructuration d'équipes, pilotage de projets complexes et transverses.</div>
-    </div>
-    <div class="expertise-card">
-      <div class="card-num">05</div>
-      <div class="card-title" data-fr="Stratégie de croissance sur marchés complexes" data-en="Growth strategy in complex markets">Stratégie de croissance sur marchés complexes</div>
-      <div class="card-desc" data-fr="Développement de marque, internationalisation, repositionnement dans des contextes culturels, réglementaires ou compétitifs exigeants. Une expérience construite chez Richemont, LVMH, Uber, Google et les Big 4." data-en="Brand development, internationalisation, repositioning in demanding cultural, regulatory or competitive contexts. Experience built at Richemont, LVMH, Uber, Google and the Big 4.">Développement de marque, internationalisation, repositionnement dans des contextes culturels, réglementaires ou compétitifs exigeants. Une expérience construite chez Richemont, LVMH, Uber, Google et les Big 4.</div>
-    </div>
+    <div class="expertise-card"><div class="card-num">01</div><div class="card-title" data-fr="Expansion internationale & distribution" data-en="International expansion & distribution">Expansion internationale & distribution</div><div class="card-desc" data-fr="Ouverture de marchés APAC et EMEA, structuration de réseaux de distribution sélective, go-to-market dans des environnements complexes. De la stratégie à l'exécution terrain." data-en="Market entry across APAC and EMEA, selective distribution network structuring, go-to-market in complex environments. From strategy to on-the-ground execution.">Ouverture de marchés APAC et EMEA, structuration de réseaux de distribution sélective, go-to-market dans des environnements complexes. De la stratégie à l'exécution terrain.</div></div>
+    <div class="expertise-card"><div class="card-num">02</div><div class="card-title" data-fr="Luxe, premium & consumer goods" data-en="Luxury, premium & consumer goods">Luxe, premium & consumer goods</div><div class="card-desc" data-fr="Expertise sectorielle profonde en horlogerie, joaillerie, mode, vin & spiritueux. Connaissance des codes du luxe, des réseaux wholesale/retail et des dynamiques de marque sur marchés matures et émergents." data-en="Deep sector expertise in watchmaking, jewellery, fashion, wine & spirits. Intimate knowledge of luxury codes, wholesale/retail networks, and brand dynamics across mature and emerging markets.">Expertise sectorielle profonde en horlogerie, joaillerie, mode, vin & spiritueux. Connaissance des codes du luxe, des réseaux wholesale/retail et des dynamiques de marque sur marchés matures et émergents.</div></div>
+    <div class="expertise-card"><div class="card-num">03</div><div class="card-title" data-fr="Transformation digitale, omnicanalité & AI" data-en="Digital transformation, omnichannel & AI">Transformation digitale, omnicanalité & AI</div><div class="card-desc" data-fr="Accompagnement dans la transition DTC, e-commerce et intégration de l'IA dans les opérations et la relation client. Des profils issus de Google, Uber et des grandes scale-ups tech." data-en="Supporting DTC transitions, e-commerce growth, and AI integration into operations and customer experience. Profiles from Google, Uber and leading tech scale-ups.">Accompagnement dans la transition DTC, e-commerce et intégration de l'IA dans les opérations et la relation client. Des profils issus de Google, Uber et des grandes scale-ups tech.</div></div>
+    <div class="expertise-card"><div class="card-num">04</div><div class="card-title" data-fr="Leadership opérationnel & C-level fractional" data-en="Operational leadership & fractional C-level">Leadership opérationnel & C-level fractional</div><div class="card-desc" data-fr="CEO, COO, CCO, VP Sales disponibles en mode fractional ou intérimaire. Prise en main rapide de P&L, restructuration d'équipes, pilotage de projets complexes et transverses." data-en="CEO, COO, CCO, VP Sales available in fractional or interim capacity. Rapid P&L ownership, team restructuring, and management of complex cross-functional projects.">CEO, COO, CCO, VP Sales disponibles en mode fractional ou intérimaire. Prise en main rapide de P&L, restructuration d'équipes, pilotage de projets complexes et transverses.</div></div>
+    <div class="expertise-card"><div class="card-num">05</div><div class="card-title" data-fr="Stratégie de croissance sur marchés complexes" data-en="Growth strategy in complex markets">Stratégie de croissance sur marchés complexes</div><div class="card-desc" data-fr="Développement de marque, internationalisation, repositionnement dans des contextes culturels, réglementaires ou compétitifs exigeants. Une expérience construite chez Richemont, LVMH, Uber, Google et les Big 4." data-en="Brand development, internationalisation, repositioning in demanding cultural, regulatory or competitive contexts. Experience built at Richemont, LVMH, Uber, Google and the Big 4.">Développement de marque, internationalisation, repositionnement dans des contextes culturels, réglementaires ou compétitifs exigeants. Une expérience construite chez Richemont, LVMH, Uber, Google et les Big 4.</div></div>
+    <div class="expertise-card"><div class="card-num">06</div><div class="card-title" data-fr="Excellence opérationnelle & transformation" data-en="Operational excellence & transformation">Excellence opérationnelle & transformation</div><div class="card-desc" data-fr="Optimisation des processus, réorganisation des structures, amélioration de la performance opérationnelle et accompagnement au changement. Nos consultants ont piloté des transformations complexes dans des environnements sous pression, de la PME au grand groupe international." data-en="Process optimisation, structural reorganisation, operational performance improvement and change management. Our consultants have led complex transformations under pressure, from SMEs to large international groups.">Optimisation des processus, réorganisation des structures, amélioration de la performance opérationnelle et accompagnement au changement. Nos consultants ont piloté des transformations complexes dans des environnements sous pression, de la PME au grand groupe international.</div></div>
   </div>
 </section>
 
@@ -227,29 +207,16 @@
     <div>
       <p class="section-lead" style="margin-bottom:0" data-fr="Nos consultants opèrent et ont opéré sur l'ensemble des grands marchés APAC et EMEA, avec une compréhension fine des dynamiques locales." data-en="Our consultants operate and have operated across major APAC and EMEA markets, with a nuanced understanding of local dynamics.">Nos consultants opèrent et ont opéré sur l'ensemble des grands marchés APAC et EMEA, avec une compréhension fine des dynamiques locales.</p>
       <div class="geo-regions">
-        <div class="geo-region">
-          <span class="region-name">APAC</span>
-          <span class="region-detail">Singapour · Chine · Japon · Hong Kong · Australie · SEA</span>
-        </div>
-        <div class="geo-region">
-          <span class="region-name" data-fr="Europe" data-en="Europe">Europe</span>
-          <span class="region-detail">France · UK · Benelux · DACH</span>
-        </div>
-        <div class="geo-region">
-          <span class="region-name" data-fr="Moyen-Orient" data-en="Middle East">Moyen-Orient</span>
-          <span class="region-detail">UAE · Arabie Saoudite</span>
-        </div>
+        <div class="geo-region"><span class="region-name">APAC</span><span class="region-detail">Singapour · Chine · Japon · Hong Kong · Australie · SEA</span></div>
+        <div class="geo-region"><span class="region-name" data-fr="Europe" data-en="Europe">Europe</span><span class="region-detail">France · UK · Benelux · DACH</span></div>
+        <div class="geo-region"><span class="region-name" data-fr="Moyen-Orient" data-en="Middle East">Moyen-Orient</span><span class="region-detail">UAE · Arabie Saoudite</span></div>
       </div>
     </div>
     <div>
       <div class="geo-clients">
         <div class="geo-clients-label" data-fr="Expériences clients & employeurs" data-en="Client & employer experience">Expériences clients & employeurs</div>
         <div class="clients-row">
-          <span class="client-tag">Richemont</span>
-          <span class="client-tag">LVMH</span>
-          <span class="client-tag">Uber</span>
-          <span class="client-tag">Google</span>
-          <span class="client-tag">Big 4</span>
+          <span class="client-tag">Richemont</span><span class="client-tag">LVMH</span><span class="client-tag">Uber</span><span class="client-tag">Google</span><span class="client-tag">Big 4</span>
           <span class="client-tag" data-fr="Scale-ups tech" data-en="Tech scale-ups">Scale-ups tech</span>
           <span class="client-tag" data-fr="Startups" data-en="Startups">Startups</span>
           <span class="client-tag" data-fr="PME" data-en="SMEs">PME</span>
@@ -265,48 +232,34 @@
       <div class="section-tag" data-fr="Contact" data-en="Contact">Contact</div>
       <h2 class="section-title" data-fr="Parlons de<br>votre projet" data-en="Let's discuss<br>your project">Parlons de<br>votre projet</h2>
       <p data-fr="Vous avez un projet d'expansion, une transformation à piloter ou un besoin de renfort en leadership ? Décrivez-nous votre situation, nous revenons vers vous sous 48h." data-en="Do you have an expansion project, a transformation to lead, or a leadership gap to fill? Tell us about your situation — we'll get back to you within 48 hours.">Vous avez un projet d'expansion, une transformation à piloter ou un besoin de renfort en leadership ? Décrivez-nous votre situation, nous revenons vers vous sous 48h.</p>
-      <div class="contact-item">
-        <div class="contact-item-icon">@</div>
-        <div class="contact-item-text">abl@baheconsulting.com</div>
+      <div class="contact-email-block">
+        <div class="contact-email-label" data-fr="Nous écrire directement" data-en="Write to us directly">Nous écrire directement</div>
+        <a href="mailto:abl@baheconsulting.com?subject=Demande%20de%20contact%20—%20BAHE%20Consulting" class="contact-email-addr">abl@baheconsulting.com</a>
       </div>
     </div>
     <form class="contact-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="field">
           <label data-fr="Prénom & Nom" data-en="Full name">Prénom & Nom</label>
-          <input type="text" data-placeholder-fr="Jean Dupont" data-placeholder-en="John Smith" placeholder="Jean Dupont" required />
+          <input type="text" id="f-name" data-placeholder-fr="Jean Dupont" data-placeholder-en="John Smith" placeholder="Jean Dupont" required />
         </div>
         <div class="field">
           <label data-fr="Société" data-en="Company">Société</label>
-          <input type="text" data-placeholder-fr="Acme Corp" data-placeholder-en="Acme Corp" placeholder="Acme Corp" />
+          <input type="text" id="f-company" data-placeholder-fr="Acme Corp" data-placeholder-en="Acme Corp" placeholder="Acme Corp" />
         </div>
       </div>
       <div class="field">
         <label>Email</label>
-        <input type="email" placeholder="jean@acme.com" required />
-      </div>
-      <div class="field">
-        <label data-fr="Type de mission" data-en="Type of engagement">Type de mission</label>
-        <select id="mission-select">
-          <option value="" disabled selected data-fr="Sélectionner..." data-en="Select...">Sélectionner...</option>
-          <option data-fr="Expansion internationale" data-en="International expansion">Expansion internationale</option>
-          <option data-fr="Transformation digitale / AI" data-en="Digital transformation / AI">Transformation digitale / AI</option>
-          <option data-fr="C-level fractional ou intérim" data-en="Fractional or interim C-level">C-level fractional ou intérim</option>
-          <option data-fr="Stratégie de marque / croissance" data-en="Brand strategy / growth">Stratégie de marque / croissance</option>
-          <option data-fr="Luxe & consumer goods" data-en="Luxury & consumer goods">Luxe & consumer goods</option>
-          <option data-fr="Autre" data-en="Other">Autre</option>
-        </select>
+        <input type="email" id="f-email" placeholder="jean@acme.com" required />
       </div>
       <div class="field">
         <label data-fr="Votre message" data-en="Your message">Votre message</label>
-        <textarea data-placeholder-fr="Décrivez brièvement votre projet ou votre besoin..." data-placeholder-en="Briefly describe your project or need..." placeholder="Décrivez brièvement votre projet ou votre besoin..." required></textarea>
+        <textarea id="f-msg" data-placeholder-fr="Décrivez brièvement votre projet ou votre besoin..." data-placeholder-en="Briefly describe your project or need..." placeholder="Décrivez brièvement votre projet ou votre besoin..." required></textarea>
       </div>
       <button type="submit" class="form-submit" data-fr="Envoyer la demande" data-en="Send request">Envoyer la demande</button>
-      <div id="form-success" style="display:none; font-size:0.85rem; color: #c9a96e; margin-top:0.5rem;"
-        data-fr="Message envoyé. Nous reviendrons vers vous sous 48h."
-        data-en="Message sent. We'll get back to you within 48 hours.">
-        Message envoyé. Nous reviendrons vers vous sous 48h.
-      </div>
+      <div id="form-success" style="display:none; font-size:0.85rem; color:#c9a96e; margin-top:0.5rem;"
+        data-fr="Votre messagerie va s'ouvrir. Envoyez l'email pré-rempli pour nous contacter."
+        data-en="Your mail app will open. Send the pre-filled email to reach us."></div>
     </form>
   </div>
 </section>
@@ -318,34 +271,31 @@
 
 <script>
 let currentLang = 'fr';
-
 function setLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
-  });
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent.toLowerCase() === lang));
   document.querySelectorAll('[data-' + lang + ']').forEach(el => {
     const val = el.getAttribute('data-' + lang);
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = el.getAttribute('data-placeholder-' + lang) || val;
-    } else if (el.tagName === 'OPTION') {
-      el.textContent = val;
-    } else {
-      el.innerHTML = val;
-    }
+    if (el.tagName === 'OPTION') el.textContent = val;
+    else if (el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') el.innerHTML = val;
   });
   document.querySelectorAll('input[data-placeholder-' + lang + '], textarea[data-placeholder-' + lang + ']').forEach(el => {
     el.placeholder = el.getAttribute('data-placeholder-' + lang);
   });
   document.documentElement.lang = lang;
 }
-
 function handleSubmit(e) {
   e.preventDefault();
-  const msg = document.getElementById('form-success');
-  msg.textContent = msg.getAttribute('data-' + currentLang);
-  msg.style.display = 'block';
-  e.target.reset();
+  const name = document.getElementById('f-name').value;
+  const company = document.getElementById('f-company').value;
+  const email = document.getElementById('f-email').value;
+  const msg = document.getElementById('f-msg').value;
+  const subject = encodeURIComponent('Demande de contact — BAHE Consulting');
+  const body = encodeURIComponent('Nom : ' + name + '\nSociété : ' + company + '\nEmail : ' + email + '\n\nMessage :\n' + msg);
+  window.location.href = 'mailto:abl@baheconsulting.com?subject=' + subject + '&body=' + body;
+  const s = document.getElementById('form-success');
+  s.textContent = s.getAttribute('data-' + currentLang);
+  s.style.display = 'block';
 }
 </script>
 </body>
